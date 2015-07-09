@@ -1,0 +1,8 @@
+
+<%= bootstrap_form_for([@user, @products]) do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_field :description %>
+  <%= f.date_field :deadline %>
+  <%= f.submit "Save Product" %>
+  <a href=<%= user_products_path(@user) %> class="btn btn-warning">Return to List</a>
+<% end %>

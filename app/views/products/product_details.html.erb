@@ -1,0 +1,20 @@
+Title:<%= @products.title %>
+<br>
+Description:<%= @products.description %>
+<br>
+Deadline:<%= @products.deadline %>
+
+<br>
+Highest Bid: <%= @highest_bid %>
+<br>
+
+<h1>Bid:</h1>
+<%= bootstrap_form_for([@products, @bids]) do |f| %>
+  <%= f.text_field :amount %>
+  <%= f.submit "Enter Bid" %>
+<% end %>
+
+<br><br>
+<a href=<%= user_products_path(@user) %> class="btn btn-primary">Return to Product List</a>
+<a href=<%= edit_user_product_path(@user, @products) %> class="btn btn-warning">Edit</a>
+<%= link_to('Delete', user_product_path(@user, @products), :method => :delete, :class => 'btn btn-danger', :data => {confirm: 'Are you sure?'}) %>
